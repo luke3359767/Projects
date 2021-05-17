@@ -1,0 +1,35 @@
+$primaryButton: rgb(189, 69, 99);
+
+@import "./header";
+
+@for $i from 1 through 12 {
+  .col-#{$i} { width: 100%/12 * $i; }
+}
+
+
+$colors: (color1: blue, color2: red, color3: green);
+
+@each $key, $color in $colors {
+  .#{$color}-text {color: $color;}
+}
+
+$x: 1;
+@while $x < 13 {
+  .colll-#{$x} { width: 100%/12 * $x;}
+  $x: $x + 1;
+}
+
+.container{
+    @include flexCenter(row,brown);
+}
+
+.container button{
+    background-color: $primaryButton;
+}
+
+.container-2{
+    @extend header;
+    background-color: royalblue;
+}
+
+// can do calculation

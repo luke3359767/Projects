@@ -1,0 +1,420 @@
+<script type="module">
+    console.log("Hello world");
+    //comment
+    var myName="beau";
+    myName=8;
+
+    var a;
+    var b;
+    a = 7;
+    b = a;
+    console.log(a);
+
+
+    var a=5;
+    var b=6;
+    var c= "I am a";
+
+    var sum=1+1;
+
+
+    // using `` 
+    var myStr=`'I am a "quote"'`+` string' is a good quote`;
+    console.log(myStr);
+    var StrLengh = myStr.length;
+    console.log(StrLengh);
+
+    console.log(myStr[0])
+
+
+    //east function
+    function wordBlanks(Noun,Adj,Verb, Adv){
+        var result="";
+        result+="The "+Adj+" "+Noun+" "+Verb+" "+ Adv+".";
+        return result;
+    }
+
+    console.log(wordBlanks("Dog","big","ran","quickly"))
+
+    //array
+    var myArray=[["john",23],['Bill',24]];
+
+    var ourArray=[12,45,77];
+    ourArray[0]=10;
+    console.log(ourArray);
+
+    //push
+    ourArray.push(100);
+    console.log(ourArray);
+
+    //pop
+    ourArray.pop();
+    console.log(ourArray)
+
+    //shift
+    ourArray.shift(); // shift means pop the first 
+
+    //unshift
+    ourArray.unshift(99); // push the first
+    console.log(ourArray);
+
+
+    //function
+    function ourFunction(){
+        console.log("YOOOOO");
+    }
+
+    ourFunction();
+    ourFunction();
+
+    //JSON.stringify
+    var testArr=[1,2,3,4,5];
+    console.log("The araay is "+JSON.stringify(testArr));
+
+    /*
+     if 
+    3=='3' True    auto convert
+    3==='3' False  strict
+
+    3 != '3'  False
+    3 !== '3' True
+    */
+
+    if(3!='3'){
+        console.log("not equal");
+    }else{
+        console.log("Equal"); //
+    }
+
+    // && ||  
+
+    // can use switch
+
+
+    //object
+
+    // dictionary
+    var ourDog = {
+        "name":"Camper",
+        "legs":4,
+    };
+
+    console.log(ourDog.legs);
+    console.log(ourDog["legs"]);
+
+    delete ourDog.name;
+
+    // you can create object in object
+
+    // 2021/04/30   2:01:08
+
+    var myStorage= {
+        "car":{
+            "inside":{
+                "glove box": "map",
+                "passenger":"crums",
+            },
+            "outside":{
+                "truck": "jack"
+            }
+        }
+    };
+        
+    var gloveBoxContent= myStorage.car.inside["glove box"];
+    console.log(gloveBoxContent);
+    // while and for  are same as C++
+
+    // return contact[i][prop] || "No such function"
+    // if there's not value, retun "No such function"
+    console.log(myStorage.car.inside["sss"] || "No such");
+
+    // Math.random() = same in JAVA
+    // Math.floor  =  float to int
+    var myRandom = Math.floor(Math.random()*20); // 0~19
+
+
+    //parseInt()  = same as Java
+    var myInt=parseInt("56");
+    // parseInt(number, Xnary);
+    console.log(parseInt("10110",2)) //22
+
+    //short if
+    function checkEqual(a,b){
+        return a==b ? true : false;
+    }
+    console.log(checkEqual(1,2))
+    
+    //short if else if
+    function checkEqual2(a,b){
+        return a==b ? true : a>b ? "bigger" : "smaller";
+    }
+    console.log(checkEqual2(1,2))
+
+
+    // let ===== to replace var
+    let catName="vanilla";
+    let quote;
+
+    catName="Blue";
+
+    function catTalk(){
+        "use strict"; // use strict
+
+        catName="Oliver";
+        quote=catName+" mow";
+    }
+    catTalk();
+    console.log(catName);
+
+    // var ===> global avoid to use
+    //let ===> local  e.x. inside if, its local
+    //const ==> cannot change
+    const NOTCHANGE="big";
+
+    const s=[1,2,3];
+    s[0]=999; //OK
+
+
+    function freezeObj(){
+        "use strict";
+        const MATH_CONSTANT={
+            "PI":3.14
+        }
+        Object.freeze(MATH_CONSTANT)
+
+    };
+
+    // Object.freeze()  let object unchangeable
+    freezeObj()   
+
+
+
+    //function tricks (Arrow function)
+
+    // var magic=function(){
+    //     return new Date();
+    // };
+    const magic= ()=> new Date();
+
+
+    // var myConst=function(arr1,arr2){
+    //     return arr1.concat(arr2);
+    // };
+    const myConst=(arr1,arr2)=>arr1.concat(arr2); // concat means put array together
+
+    console.log(myConst([1,2],[3,4,5]));
+
+
+    
+    // => is just like constructor in JAVA
+    const realNumberArray=[4,5.6,-9.8,3.14,42,6,-8.24,-2];
+    
+    const squareList=(arr)=> {
+        // In arr.filter, num loop over the whole array, and only keep the ones that condition need
+        // then, use .map() after filter. x means every element in x
+        const squardIntergers= arr.filter( num => Number.isInteger(num) && num>0).map(x => x*x);
+        //
+        return squardIntergers;
+    };
+
+    const sq= squareList(realNumberArray);
+    console.log(sq);
+
+
+    // 2021/05/01   2:53:21
+
+    // defult
+    const increment=(function(){
+        return function increment(num,val=1){
+            return num+val;
+        };
+    })();
+    console.log(increment(5));
+
+    // ... means convert everything into the array
+    const Sum=(function(){
+        return function sum(...args){
+            // const args=[x,y,z];
+            return args.reduce((a,b) => a+b,0);
+        };
+    })();
+    console.log(Sum(1,2,3,4,5));
+
+    // spread operator, just like copy in python
+    const arr1=['j','f','m'];
+    let arr2;
+    (
+        function(){
+            // arr2 = arr1;   // will change 'f' to 'potato' when change arr1
+            arr2=[...arr1]; // will not change 'f' when change arr1[0]
+            arr1[0]='potato'   
+        }
+    )();
+
+
+
+    //destruction
+    var vowel={x:3.6,y:7.4,z:6.54};
+
+    const {x:A,y:B,z:C} = vowel; // a=3.6 b=7.4 c=6.54
+    console.log(A,B,C);
+
+    //
+    const LOCAL_FOREST={
+        today:{max:10,min:1},
+        tomorrow:{max:9,min:2}
+    };
+
+    function getMaxDegree(forecast){
+        "use strict";
+
+        const {tomorrow:{max: Answer}} = forecast;
+        return Answer;
+    };
+    console.log(getMaxDegree(LOCAL_FOREST));
+
+
+    // deconstruct arrays
+    const [z,x,,y]=[0,1,2,3,4,5,6]; // z=0 x=1 y=2
+
+    let aa=8, bb=6;
+    (
+        ()=>{
+            "use strict";
+            [aa,bb]=[bb,aa]; // switch
+        }
+    )();
+
+
+    // deconstruct array #2
+    const source=[1,2,3,4,5,6,7,8,9];
+    function removeFirstTwo(list){
+        const [, , ...arr] =list;  // arr will be every element in list except first 2 elements
+        return arr;
+    }
+    const arr= removeFirstTwo(source);
+    console.log(arr);
+
+
+    //destruciton to assign object's things
+    const  states={
+        max:34.43,
+        min:23.55,
+        standard:334,
+        sdsd:343432,
+    };
+
+    const half=(function(){
+        return function half({max,min}){
+            return(max*min)/2.0;
+        };
+    })();
+
+    console.log(states);
+    console.log(half(states));
+
+
+
+    //format
+    const person={
+        name:"DICK",
+        age:56
+    };
+
+    const greeting=`Hello, my name is ${person.name}. I am ${56} years old`; // ${} means like format in python
+    console.log(greeting);
+
+
+
+    //wtite object easier
+    // const createPerson=(name,age,gender)=>{
+    //     return{name:name,age:age,gender:gender};
+    // };
+    const createPerson=(name,age,gender)=>({name,age,gender}); // will return this object {name,age,gender}
+
+    console.log(createPerson("DICK",56,"male"));
+
+
+    //
+    const bicycle={
+        gear:2,
+        setGear: function(newGear){
+            "use strict";
+            this.gear=newGear; //this means bicycle
+        }
+    };
+    bicycle.setGear(3);
+    console.log(bicycle.gear);
+
+    //class
+    class spaceShuttle{
+        constructor(target){
+            this.target=target;
+        }
+    };
+    var zeus= new spaceShuttle('Jupiter');
+    console.log(zeus.target);
+
+    //class2
+    function makeClass(){
+        class Vagetable{
+            constructor(name){
+                this.name=name;
+            }
+        }
+        return Vagetable;
+    }
+    const Vagetable=makeClass(); // Vegetable is the class 
+    const carrot=new Vagetable('carrot');
+    console.log(carrot.name);
+
+
+    //class, getter and setter
+    function makeClass2(){
+        class Book{
+        constructor(author){
+            this._author=author;
+        }
+        // getter
+        get writter(){
+            return this._author;
+        }
+        // setter
+        set writer(upd){
+            this._author=upd;
+        }
+        }
+        return Book;
+    }
+    const Book=makeClass2();
+    const B1=new Book("Mike");
+    let temp=B1._author;
+
+
+    //import
+    // import {capitalizeString} from "./capitalstring";
+    // const cap=capitalizeString("hello!");
+
+    // console.log(cap);
+
+    const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+makeServerRequest.then(result=>{console.log(result)});
+    
+   
+
+
+
+</script>
+
+
+
+

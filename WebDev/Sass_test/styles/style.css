@@ -1,0 +1,160 @@
+header, .container-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: aqua;
+  height: 100px;
+}
+
+header button, .container-2 button {
+  background-color: #bd4563;
+}
+
+header button::after, .container-2 button::after {
+  content: "hello";
+  background-color: red;
+}
+
+.col-1 {
+  width: 8.33333%;
+}
+
+.col-2 {
+  width: 16.66667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33333%;
+}
+
+.col-5 {
+  width: 41.66667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33333%;
+}
+
+.col-8 {
+  width: 66.66667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33333%;
+}
+
+.col-11 {
+  width: 91.66667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+.colll-1 {
+  width: 8.33333%;
+}
+
+.colll-2 {
+  width: 16.66667%;
+}
+
+.colll-3 {
+  width: 25%;
+}
+
+.colll-4 {
+  width: 33.33333%;
+}
+
+.colll-5 {
+  width: 41.66667%;
+}
+
+.colll-6 {
+  width: 50%;
+}
+
+.colll-7 {
+  width: 58.33333%;
+}
+
+.colll-8 {
+  width: 66.66667%;
+}
+
+.colll-9 {
+  width: 75%;
+}
+
+.colll-10 {
+  width: 83.33333%;
+}
+
+.colll-11 {
+  width: 91.66667%;
+}
+
+.colll-12 {
+  width: 100%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: brown;
+}
+
+.container button {
+  background-color: #bd4563;
+}
+
+.container-2 {
+  background-color: royalblue;
+}
+/*# sourceMappingURL=style.css.map */

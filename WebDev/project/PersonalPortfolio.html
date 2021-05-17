@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Personal Portfolio">
+    <meta name="keywords" content="Personal Portfolio">
+    <meta name="author" content="Luke Liu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio|luke3359767</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        *{
+            margin:0;
+            padding: 0;
+        }
+        *,
+        *::before,
+        *::after {
+        box-sizing: inherit;
+        }
+        html{
+            box-sizing: border-box;
+            /* Set font size for easy rem calculations
+            * default document font size = 16px, 1rem = 16px, 100% = 16px
+            * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+            */
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        /* 1200px/16px=75em */
+        @media (max-width:75em) {
+            html{
+            font-size: 60%;
+            }
+        }
+
+        @media (max-width: 61.25em) {
+            html {
+                font-size: 58%;
+            }
+        }
+
+        /* 460px / 16px = 28.75em */
+        @media (max-width: 28.75em) {
+            html {
+                font-size: 55%;
+            }
+        }
+        body{
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.4;
+            color:white;
+        }
+        h1,h2{
+            font-weight: 700;
+            text-align: center;
+        }
+        h1{
+            font-size: 6rem;
+        }
+        h2{
+            font-size: 4.2rem;
+        }
+
+        ul{
+            list-style: none;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        img{
+            display: block;
+            width: 100%;
+        }
+        nav{
+            display:flex;
+            justify-content: flex-end;
+            width: 100%;
+            background-color: rgb(50, 50, 189);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .nav-list{
+            display:flex;
+            margin-right: 2rem;
+        }
+        .nav-list>li{
+            padding: 1.5rem;
+            font-size: 2.2rem;
+            display: block;
+        }
+        @media (max-width:28.75em) {
+            .nav{
+                justify-content: center;
+            }   
+            .nav-list {
+                margin: 0 1rem;
+            }         
+        }
+        .nav-list>li:hover{
+            background-color: #be3144;
+        }
+        .welcome-section{
+            display: flex;
+            background-image: linear-gradient(135deg,rgba(95, 95, 95, 0.8), rgba(39, 39, 39, 0.7)),url(https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg);     
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position:center;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .welcome-section>span{
+            text-align: center;
+            font-style:italic;
+            color: rgb(144, 144, 240);
+        }
+        .projects-section{
+            text-align: center;
+            background-color: #be3144;
+            padding: 5rem 2rem;
+
+        }
+        .projects-section>h2{
+            max-width: 640px;
+            font-weight: 500;
+            margin: 0 auto 6rem auto;
+            border-bottom: 0.2rem solid white;
+        }
+        @media (max-width: 28.75em) {
+            .projects-section>H2 {
+                font-size: 4rem;
+            }
+        }
+        .projects-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            grid-gap: 4rem;
+            max-width: 1080px;
+            margin: 0 auto;
+            width: 100%;
+            margin-bottom: 6rem;
+            padding: 0 50px 0 50px;
+     
+        }
+        @media (max-width: 30.625em) {
+        .projects-section {
+            padding: 6rem 1rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        }
+        .project{
+            background: rgb(92, 92, 92);;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+     
+        }
+        .code{
+            color:rgb(92, 92, 92);
+            transition: 0.3s ease-out;
+        }
+        .project:hover .code{
+            color:orange;
+        }
+        .project:hover .project-title{
+            border-right: orange solid 5px;
+            border-left: orange solid 5px;
+        }
+        .project>img{
+            height: 30rem;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+
+        }
+        
+        .project-title {
+        font-size: 2rem;
+        padding: 2rem 0.5rem;
+        transition: 0.3s;
+        }
+        .btn{
+            background-color:rgb(92, 92, 92);
+            padding:1rem 2rem 1rem 2rem;
+            border-radius: 2px;
+            display: inline-block;
+            transition: 0.3s ease-out;
+
+        }
+        .btn-show-all > i {
+            margin-left: 10px;
+            transform: translateX(0);
+            transition: 0.3s ease-out;
+        }
+        .btn-show-all:hover{
+            background-color:rgb(214, 57, 0);
+        }
+        .btn-show-all:hover>i{
+            transform: translateX(2px);
+        }
+        .contact-section{
+            background-color:rgb(92, 92, 92);
+            padding-top: 20px;
+            text-align: center;
+            align-items: center;
+            padding: 12rem 0 10rem;
+            
+    
+        }
+        .contact-section-header{
+            display: flex;
+            flex-direction: column;            
+            padding: 0 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-section-header>span{
+            font-style: italic;
+            font-weight: thin;
+            font-size: 18px;
+            
+        }
+        .contact-links{
+            display:flex;
+            justify-content: center;
+            max-width: 980px;
+            width: 100%;
+            margin-top: 5rem;
+            flex-wrap: wrap;
+
+        }
+        .btn-contact{
+            text-shadow: 2px 2px 1px #424242;
+
+        }
+        .btn-contact:hover {
+        transform: translateY(8px);
+        }
+
+        footer{
+            border-top:4px solid #be3144;
+            background-color:rgb(92, 92, 92);
+            text-align: center;
+            justify-content: space-around;
+            display: flex;
+            padding: 2rem 0 2rem;
+            font-size: 12px;
+
+        }
+                
+
+
+    </style>
+</head>
+
+<main>
+    <script src="https://kit.fontawesome.com/d8eeee79ed.js" crossorigin="anonymous"></script>
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+            <li><a href="#welcome-section">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <section id="welcome-section" class="welcome-section">
+        <h1>This is Luke</h1>
+        <span>I am a student coder</p>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2>These are parts of my projects</h2>
+
+        <div class="projects-grid">
+            <a href="https://codepen.io/luke3359767/pen/wvJBwjV" target="_blank" class="project project-tile">
+                <img src="https://i.ibb.co/6ZnZj45/2021-05-10-16-01-24-Main.png" alt="Project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Tribute Page
+                    <span class="code">&#47;&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/luke3359767/full/ExWaRwZ" target="_blank" class="project project-tile">
+                <img src="https://i.ibb.co/YWfTVzm/2021-05-10-16-06-36-Main.png" alt="Project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Survey Form
+                    <span class="code">&#47;&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/luke3359767/full/PopqBmM" target="_blank" class="project project-tile">
+                <img src="https://i.ibb.co/1TgfPQz/2021-05-10-16-10-38-Main.png" alt="Project">               
+                 <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Technical Documentation
+                    <span class="code">&#47;&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/luke3359767/pen/WNpvMqe" target="_blank" class="project project-tile">
+                <img src="https://i.ibb.co/4jRw9gz/2021-05-10-16-15-07-Main.png" alt="Project" >
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Product Landing Page
+                    <span class="code">&#47;&gt;</span>
+                </p>
+            </a>
+        </div>
+
+        <a href="https://codepen.io/luke3359767" class="btn btn-show-all" target="_blank">Show all <i class="fas fa-chevron-right"></i></a>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-section-header">
+            <h2>Contact Me</h2>
+            <span>Let's work together.</span>
+        </div>
+        </div class="contact-links">
+            
+            <a href="https://www.facebook.com/luke.lun.77/" target="_blank" class="btn btn-contact" id="profile-link"><i class="fab fa-facebook-square"></i> Facebook</a>
+            <a href="https://github.com/luke3359767" target="_blank" class="btn btn-contact" id="profile-link"><i class="fab fa-github-square"></i> Github</a>
+            <a href="https://www.instagram.com/lukeliu_canada" target="_blank" class="btn btn-contact" id="profile-link"><i class="fab fa-instagram-square"></i> Instergram</a>
+            <a href="mailto:3359767@gmail.com" target="_blank" class="btn btn-contact" id="profile-link"><i class="fas fa-at"></i> Email</a>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>
+          *This is just a project made by luke3359767*</p>
+        <p>&copy; Created by Luke3359767</p>
+      </footer>
+
+</main>
+</html>

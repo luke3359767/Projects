@@ -1,0 +1,23 @@
+@mixin flexCenter($dir,$back) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $dir;
+    background-color: $back;
+}
+
+
+
+header{
+    @include flexCenter(column,aqua);
+    height: 100px;
+    
+    button{
+            background-color: $primaryButton;
+            &::after{
+                content: "hello";
+                background-color: red;
+            }
+
+    }
+}

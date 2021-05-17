@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<main>
+    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Product Landing page">
+        <meta name="keywords" content="Piano">
+        <meta name="author" content="Luke Liu">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Genuine Piano</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+            body{
+                font-family: 'Roboto', sans-serif;
+                background-image: linear-gradient(90deg,rgba(129, 183, 255, 1), rgba(255, 144, 212, 1));     
+                background-size:cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: relative;
+            }
+            li{
+                list-style: none;
+            }
+            a{
+                color: #000;
+                text-decoration: none;
+            }
+            .container{
+                max-width: 1000px;
+                width:100%;
+                margin: 0 auto;
+            }
+            .button{
+                padding:0 20px;
+                height:40px;
+                font-size: 1em;
+                font-weight: 900;
+                text-transform: uppercase;
+                border: 3px black solid;
+                border-radius: 2px;
+                background: transparent;
+                cursor: pointer;
+            }
+            #grid{
+                display:flex;
+            }
+            header{
+                position: fixed;
+                display:flex;
+                top:0;
+                min-height: 75px;
+                justify-content: space-around;
+                align-items: center;
+                background-image: linear-gradient(90deg,rgba(129, 183, 255, 1), rgba(255, 144, 212, 1));
+                width: 100%;
+                }
+            h1{
+                font-size: 50px;
+            }
+            #header-img{
+                max-width: 50px;
+                vertical-align: middle;
+                }
+            @media (max-width: 600px) {
+                header {
+                    flex-wrap: wrap;
+                }
+            }
+            #logo{
+                width: 100%;
+            }
+            @media(max-width:650px){
+                #logo{
+                    margin-top: 15;
+                    width: 100%;
+                    position:relative;
+                }
+            }
+            @media (max-width: 650px) {
+                #logo > img {
+                    margin: 0 auto;
+                }
+            }
+            nav{
+                font-weight: 400;
+                
+            }
+            @media (max-width: 650px) {
+            nav {
+                margin-top: 10px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 50px;
+            }}
+            nav li{
+                padding-bottom:5px;
+            }
+            nav >ul{
+                width:35vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            @media (max-width: 650px) {
+                nav > ul {
+                    flex-direction: column;
+                }
+            }
+            #hero{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin-top: 50px;
+                height: 200px;
+            }
+            #hero>h2{
+                margin-bottom: 20px;
+                word-wrap: break-word;
+            }
+            input[type="email"]{
+                max-width: 275px;
+                width: 100%;
+                padding: 5px;
+            }
+            input[type="submit"]{
+                max-width: 150px;
+                width:100%;
+                padding-left: 10px;
+                height: 30px;
+                margin-top: 20px ;
+                border:0;
+                transition: background-color 1s;
+                background-color: hsl(266, 97%, 72%);
+
+            }
+            input[type="submit"]:hover{
+                background-color: hsl(266, 85%, 63%);
+            }
+            @media (max-width: 650px) {
+                #hero {
+                    margin-top: 120px;
+                }
+            }
+
+            #features {
+                margin-top: 30px;
+                
+            }
+            #features #icon{
+
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                height:125px;
+                width: 20vw;
+                color: hsl(266, 85%, 63%);
+
+            }
+            @media (max-width: 550px) {
+                #features #icon {
+                    display: none;
+                }
+            }
+
+            #features .disc{
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 125px;
+                width: 80vw;
+                padding: 5px;
+            }
+
+            @media (max-width: 550px) {
+            #features .desc {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                height: 150px;
+            }
+            }
+
+            @media (max-width: 650px) {
+            #features {
+                margin-top: 0;
+            }
+            }
+            #How-we-work{
+                margin-top:50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            #How-we-work > h2{
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 50px;
+
+            }
+            #How-we-work > iframe{
+                max-width: 560px;
+                width: 100%;
+                margin:0 auto;
+            }
+            #pricing{
+                margin-top: 60px;
+                display: flex;
+
+            }
+            .product{
+                display:flex;
+                background-color: rgb(218, 218, 218);
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: calc(100%/3);
+                margin:10px;
+                border:1px solid black;
+                border-radius: 3px;
+            }
+            .product>.level{
+                color: black;
+                padding:15px 0;
+                width:100%;
+                text-transform: uppercase;
+                font-weight: 700;
+
+            }
+            #electric-piano>.level{
+                background-color: silver;
+            }
+            #upright-piano>.level{
+                background-color: gold;
+            }
+            #grand-piano>.level{
+                background-color: darkturquoise;
+            }
+            .product>h2{
+                margin-top: 15px;
+            }
+            .product>ol{
+                margin: 15px 0;
+            }
+            .product>ol>li{
+                padding: 5px 0;
+            }
+            .product>.button{
+                margin:15px 0;
+                border:0;
+                font-weight: 700;
+            }
+            #electric-piano>.button{
+                background-color: silver;
+                transition: 1s;
+            }
+            #electric-piano>.button:hover{
+                background-color: rgb(158, 158, 158);
+                transform: scale(1.1);
+
+            }
+            #upright-piano>.button{
+                background-color: gold;
+                transition: 1s;
+
+            }
+            #upright-piano>.button:hover{
+                background-color: goldenrod;
+                transform: scale(1.1);
+
+            }
+            #grand-piano>.button{
+                background-color: darkturquoise;
+                transition: 1s;
+                
+            }
+            #grand-piano>.button:hover{
+                background-color: rgb(0, 224, 228);
+                transform: scale(1.2);
+            }
+            #grand-piano{
+                transition: 0.8s;
+            }
+            #grand-piano:hover{
+                transform: scale(1.1);
+                background-color: rgb(168, 168, 168);
+            }
+            @media (max-width: 800px) {
+            #pricing {
+                flex-direction: column;
+            }
+            .product {
+                max-width: 300px;
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+            }
+            footer{
+                display:flex;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgb(218, 218, 218);
+                margin-top: 30px;
+                padding: 20px;
+            }
+            footer>ul{
+                display:flex;
+                justify-content: flex-end;
+            }
+            footer>ul>li{
+                padding:0 10px;
+                font-weight: 500;
+            }
+            footer>span{
+                display: flex;
+                padding-top: 5px;
+                justify-content: flex-end;
+                font-size: 90%;
+                color:rgb(44, 44, 44)
+            }
+
+        </style>
+    </head>
+    <body>
+       <header id="header">
+           <div id="logo">
+             <h1><img id="header-img" src="https://cdn4.iconfinder.com/data/icons/musical-instruments-22/50/27-512.png" alt="Genuine Piano Logo">Genuine Piano</h1>
+           </div>
+            <nav id="nav-bar">
+                <ul>
+                    <li><a class="nav-link" href="#features">Features</a></li>
+                    <li><a class="nav-link" href="#How-we-work">How we work</a></li>
+                    <li><a class="nav-link" href="#pricing">Pricing</a></li>
+                </ul>
+            </nav>
+        </header> 
+
+        <div class="container"></div>
+
+        <section id="hero">
+            <h2>With enthusiasm, top class masterpiece</h2>
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <input name="email" type="email" id="email" placeholder="Enter you email" required>
+                <input id="submit" type="submit" value="Get Started" class="button">
+            </form>
+        </section>
+
+        <div class="container">
+            <section id="features">
+                <div id="grid">
+                    <div id="icon"><i class="fi-xwsux5-check"></i></div>
+                    <div class="disc">
+                        <h2>Quality Assurance</h2>
+                        <p>Every product has been checked and tuned by profesional technologists.For every purchase you make, we will ensure there are no damages or faults.</p>
+                    </div>
+                </div>
+
+                <div id="grid">
+                    <div id="icon"><i class="fi-xnsux5-codeigniter"></i></div>
+                    <div class="disc">
+                        <h2>Famous Brand</h2>
+                        <p>Our company started in 1922 and is known by world wide.</p>
+                    </div>
+                </div>
+                <div id="grid">
+                    <div id="icon"><i class="fi-xwsuh5-shopping-cart-solid"></i></div>
+                    <div class="disc">
+                        <h2>Fast Shipping</h2>
+                        <p>You can receive your piano in 3 days once you pay.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="How-we-work">
+                <h2>How we work?</h2>
+                <iframe id="video" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </section>
+
+            <section id="pricing">
+                <div class="product" id="electric-piano">
+                    <div class="level">Silver Pack</div>
+                    <h2>$2000</h2>
+                    <ol>
+                        <li>Electric piano</li>
+                        <li>3 year insurance</li>
+                        <li>Chair included</li>
+                        <li>MIDI</li>
+                    </ol>
+                    <button class="button">Select</button>
+                </div>
+                <div class="product" id="upright-piano">
+                    <div class="level">Golden Pack</div>
+                    <h2>$5000</h2>
+                    <ol>
+                        <li>Upright piano</li>
+                        <li>3 year insurance</li>
+                        <li>Chair included</li>
+                        <li>Made by ebony wood</li>
+                    </ol>
+                    <button class="button">Select</button>
+                </div>
+                <div class="product" id="grand-piano">
+                    <div class="level">Diamond Pack</div>
+                    <h2>$10000</h2>
+                    <ol>
+                        <li>Grand piano</li>
+                        <li>3 year insurance</li>
+                        <li>Chair included</li>
+                        <li>Fantastic performance</li>
+                    </ol>
+                    <button class="button">Select</button>
+                </div>
+            </section>
+            <footer>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <span>Copyright 2021, Genuine Piano</span>
+            </footer>
+        </div>
+
+      
+    </body>
+</main>
+</html>
