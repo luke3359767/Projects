@@ -1,0 +1,12 @@
+npm init -y   //this is the initial
+npm i express   //this is the server
+npm i --save-dev nodemon  //this is for autorestart when doing change
+
+// write this in package.json
+"scripts":{
+    "devStart":"nodemon server.js"
+}
+
+npm run devStart
+
+npm i ejs
